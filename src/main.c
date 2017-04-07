@@ -1,21 +1,15 @@
-/*
-  Arquivo: MAIN.C
-  Autor: Roberto Bauer
-  Observacoes: 
-			Arquivo central do programa, funcaoh main()
-*/
+//
+//  File: MAIN.C
+//  Author: Roberto Bauer
+//  Comments: Central program file, main () function
+//
+
 
 #define __MAIN_C__
 
 #include "main.h"
 
-
-
-int
-main (int argc, char *argv[])
+int main(int argc, char *argv[])
 {
-  int iRet = EXIT_SUCCESS;
-
-
-  return (iRet);
+    return ( CalcInfix(argc, argv) );
 }
