@@ -11,4 +11,24 @@
 
 
 
+void BigNumberInit(sBIGNUMBER *sNum)
+{
+    SLIST *L;     // duas listas encadeadas diferentes
+
+
+    // setup linked list
+    L = CreateLList( CreateData,
+                     DeleteData,
+                     DuplicatedNode,
+                     NodeDataCmp);
+}
+
+
+void BigNumberDestroy(sBIGNUMBER *sNum)
+{
+
+
+
+}
+
 

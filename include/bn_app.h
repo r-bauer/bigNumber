@@ -40,7 +40,7 @@ typedef struct tagBigNumber
     sNumberInterger sDenominator;
     sNumberIrrational sCientific;
 
-} sBigNumber;
+} sBIGNUMBER;
 
 
 
