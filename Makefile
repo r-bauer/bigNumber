@@ -15,7 +15,10 @@ _DEPS=	stackapp.h \
 	stackgen.h \
 	main.h \
 	llgen.h \
-    utils.h
+	llapp.h \
+	bn_app.h \
+	bn_driver.h \
+	utils.h
 DEPS=$(addprefix $(IDIR)/, $(_DEPS))
 
 _OBJ=	main.o \
@@ -23,6 +26,9 @@ _OBJ=	main.o \
 	stackapp.o \
 	stackgen.o \
 	llgen.o \
+	llapp.o \
+	bn_app.o \
+	bn_driver.o \
     utils.o
 
 #OBJ=$(patsubst %, $(ODIR)/%, $(_OBJ))

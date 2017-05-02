@@ -16,6 +16,32 @@
     #define EXTERN  extern
 #endif
 
+typedef struct tagNumberInterger
+{
+    unsigned int *puiHead;
+    unsigned int *puiTail;
+    char cSignal;
+
+} sNumberInterger;
+
+typedef struct tagNumberIrrational
+{
+    unsigned int *puiHead;
+    unsigned int *puiTail;
+    sNumberInterger sDecimalPoint;
+    char cSignal;
+
+} sNumberIrrational;
+
+
+typedef struct tagBigNumber
+{
+    sNumberInterger sNumerator;
+    sNumberInterger sDenominator;
+    sNumberIrrational sCientific;
+
+} sBigNumber;
+
 
 
 #endif  // #define __BN_APP_H__

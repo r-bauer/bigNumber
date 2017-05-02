@@ -120,11 +120,11 @@ BOOL PopData(SSTACK *pStk, void *pData)
         return (FALSE);        // return error
 
 
-     // calculates the posicaoh address of the top of the stack
+    // calculates address at the top of the stack
     pPos = (BYTE *) pStk->pBase;
     pPos += (pStk->iTop * pStk->iDataSize);
 
-     // copy the information from the top of the stack to pData
+    // copy the information from the top of the stack to pData
     memmove(pData, pPos, pStk->iDataSize);
 
     --pStk->iTop;

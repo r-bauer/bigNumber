@@ -102,8 +102,8 @@ int CalcInfix(int argc, char *argv[])
 			2 - '+ - / * $' operators need to be between operands '01234567689'
 			3 - parenthesis () 'have to always be in pairs respecting posicaoh
 			4 - operand naoh can be followed by another operand
-			5 - operators '+ - / * $' naoh can be on the left of ')'
-			6 - operators '+ - / * $' naoh can be to the right of '('
+			5 - operators '+ - / * $' can't be on the left of ')'
+			6 - operators '+ - / * $' can't be to the right of '('
 
 */
 LOCAL int VerifyStrInfix(int argc, char *argv[], char **strInfix)
@@ -472,7 +472,7 @@ LOCAL int CreateTableArg(char *str, char ***myargv)
 	}
 	argc++;
 	
-	 save initial position with pTable
+	// save initial position with pTable
 	pTable = *myargv = malloc(argc * sizeof(char *));
 
 	if (*myargv == NULL)

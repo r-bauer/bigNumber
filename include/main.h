@@ -34,5 +34,8 @@ typedef unsigned char   BYTE;
 #include "stackdrv.h"
 #include "utils.h"
 #include "llgen.h"
+#include "llapp.h"
+#include "bn_app.h"
+#include "bn_driver.h"
 
 #endif                                  /* #ifndef __MAIN_H__ */
