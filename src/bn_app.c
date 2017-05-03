@@ -11,24 +11,55 @@
 
 
 
-void BigNumberInit(sBIGNUMBER *sNum)
+/*
+#define LLHead 			(L-> slkHead)	// the start of the current list
+#define LLTail 			(L-> slkTail)	// the end of the current list
+#define NodeCount 		(L-> uiCount)	// nodes in the current list
+
+
+typedef struct tagNumberInterger
 {
-    SLIST *L;     // duas listas encadeadas diferentes
+    SLIST *list;
+    char cSignal;
+
+} sINTERGER;
+
+typedef struct tagNumberIrrational
+{
+    sINTERGER sNumber;
+    sINTERGER sPotential;
+
+} sIRRATIONAL;
 
 
-    // setup linked list
-    L = CreateLList( CreateData,
-                     DeleteData,
-                     DuplicatedNode,
-                     NodeDataCmp);
+typedef struct tagBigNumber
+{
+    sINTERGER sNumerator;
+    sINTERGER sDenominator;
+//    sIRRATIONAL sCientific;
+
+} sRATIONAL;
+
+
+*/
+
+
+void BigNumberInit(sRATIONAL *sNum)
+{
+    sNum = (sRATIONAL *) malloc(sizeof(sRATIONAL));
+   // setup linked list
+    sNum->sNumerator.list = CreateLList( CreateData,
+                                         DeleteData,
+                                         DuplicatedNode,
+                                         NodeDataCmp);
 }
 
 
-void BigNumberDestroy(sBIGNUMBER *sNum)
+void BigNumberDestroy(sRATIONAL *sNum)
 {
 
-
-
+    DestroyLList(  sNum->sNumerator.list ); 
+    free(sNum);
 }
 
 

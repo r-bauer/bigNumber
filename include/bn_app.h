@@ -1,8 +1,8 @@
 /*
-  Arquivo: BN_APP.H
-  Autor: Roberto Bauer
-  Observacoes:
-              Dados especificos da aplicacaoh p/ big numbers
+  File: BN_APP.H
+  Author: Roberto Bauer
+  Comments:
+              Specific data for big numbers
 */
 
 
@@ -18,29 +18,26 @@
 
 typedef struct tagNumberInterger
 {
-    unsigned int *puiHead;
-    unsigned int *puiTail;
+    SLIST *list;
     char cSignal;
 
-} sNumberInterger;
+} sINTERGER;
 
 typedef struct tagNumberIrrational
 {
-    unsigned int *puiHead;
-    unsigned int *puiTail;
-    sNumberInterger sDecimalPoint;
-    char cSignal;
+    sINTERGER sNumber;
+    sINTERGER sPotential;
 
-} sNumberIrrational;
+} sIRRATIONAL;
 
 
 typedef struct tagBigNumber
 {
-    sNumberInterger sNumerator;
-    sNumberInterger sDenominator;
-    sNumberIrrational sCientific;
+    sINTERGER sNumerator;
+    sINTERGER sDenominator;
+//    sIRRATIONAL sCientific;
 
-} sBIGNUMBER;
+} sRATIONAL;
 
 
 
