@@ -46,12 +46,20 @@ typedef struct tagBigNumber
 
 void BigNumberInit(sRATIONAL *sNum)
 {
-    sNum = (sRATIONAL *) malloc(sizeof(sRATIONAL));
-   // setup linked list
+    // firstly, create the rational data structure 
+     sNum = (sRATIONAL *) malloc(sizeof(sRATIONAL));
+
+    // setup linked list
     sNum->sNumerator.list = CreateLList( CreateData,
                                          DeleteData,
                                          DuplicatedNode,
                                          NodeDataCmp);
+   
+
+    sNum->sDenominator.list = CreateLList( CreateData,
+                                           DeleteData,
+                                           DuplicatedNode,
+                                           NodeDataCmp);
 }
 
 
@@ -59,6 +67,7 @@ void BigNumberDestroy(sRATIONAL *sNum)
 {
 
     DestroyLList(  sNum->sNumerator.list ); 
+    DestroyLList(  sNum->sDenominator.list ); 
     free(sNum);
 }
 
