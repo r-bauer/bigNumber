@@ -15,6 +15,7 @@
 #endif
 
 #define LOCAL       static
+#define PRIVATE     static
 
 #include <stdio.h>
 #include <stdlib.h>
