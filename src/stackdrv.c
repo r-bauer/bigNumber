@@ -473,7 +473,10 @@ LOCAL int CreateTableArg(char *str, char ***myargv)
 	argc++;
 	
 	// save initial position with pTable
-	pTable = *myargv = malloc(argc * sizeof(char *));
+//	pTable = *myargv = (char *) malloc(argc * sizeof(char *));
+	pTable = (char *) malloc(argc * sizeof(char *));
+	*myargv = (char **) pTable;
+
 
 	if (*myargv == NULL)
 	{
@@ -494,7 +497,7 @@ LOCAL int CreateTableArg(char *str, char ***myargv)
 	}
 	**myargv = pBegin;
 
-	*myargv = pTable;
+	*myargv = (char **) pTable;
 
 	return argc;
 }

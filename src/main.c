@@ -9,11 +9,16 @@
 
 #include "main.h"
 
+PRIVATE void UseFile(char *);
+
+
 int main(int argc, char *argv[])
 {
 //    return ( CalcInfix(argc, argv) );
 
     int iRet = EXIT_SUCCESS;
+
+    UseFile(argv[1]);
 
 
 
@@ -22,10 +27,12 @@ int main(int argc, char *argv[])
 
 PRIVATE void UseFile (char *fName )
 {
-  FILE *fin; 
+  FILE *fin;
   char *ptrStr;
-  char strValue[256];
+  char strValue[0x100];
   int iChar;
+  BOOL bNumberEnd;
+  int iCnt;
 
 
   fin = fopen (fName, "rt");
@@ -36,6 +43,35 @@ PRIVATE void UseFile (char *fName )
       // start checking file
       while (!feof (fin))
         {
+            bNumberEnd = TRUE;
+            iCnt = 0;
+            ptrStr = strValue;
+            do 
+            {
+                iChar = getc(fin);
+
+                if (    iChar != EOF && 
+                        (
+                        isspace(iChar) ||
+                        ispunct(iChar) 
+                        )
+                   )
+                {
+
+                }
+                else
+                {
+                    switch (iChar) 
+                    {
+                        default:
+                            break;
+                    }
+                }
+
+
+            } while (bNumberEnd);
+
+/*
           // go through all text, jumping space and punctuaction
           do
             {
@@ -46,12 +82,22 @@ PRIVATE void UseFile (char *fName )
           // valid char
           // start to mount word
           ptrStr = strValue;
-          do
-            {
-              *ptrStr++ = iChar;
-              iChar = getc (fin);
-            }
-          while (iChar != EOF && !isspace (iChar) && !ispunct (iChar));
+          {
+               int i;
+                for (   i = 0; 
+                        i < 0xFF && iChar != EOF && !isspace(iChar) && !ispunct(iChar); 
+                        i++)
+                {
+                    *ptrStr++ = iChar;
+                    iChar = getc(fin);
+                }           
+          }
+//          do
+//            {
+//              *ptrStr++ = iChar;
+//              iChar = getc (fin);
+//            }
+//          while (iChar != EOF && !isspace (iChar) && !ispunct (iChar));
 
           // end of file, stop looping
           if (iChar == EOF)
@@ -59,7 +105,7 @@ PRIVATE void UseFile (char *fName )
 
           // close word with nul
           *ptrStr = '\0';
-
+*/
         }                       // while (!feof(fin)) 
 
       fclose (fin);
